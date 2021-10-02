@@ -5,7 +5,7 @@ WORKDIR /opt/api
 RUN pip install poetry
 RUN poetry config virtualenvs.create false
 
-COPY pyproject.toml /opt/api
-COPY poetry.lock /opt/api
+COPY . /opt/api/
 
 RUN poetry install
+CMD ["/bin/bash", "-cxv", "poetry install && gunicorn api.main:app -w 4 -k uvicorn.workers.UvicornWorker"]

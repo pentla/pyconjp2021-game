@@ -9,6 +9,7 @@ services:
       - PYTHONPATH=api
       - PYTHONUNBUFFERED=yes
       - ENV=dev
+      - PORT=8001
     volumes:
       - ./:/opt/api
       - /opt/api/.venv # ローカルの .venv が同期されてエラーになるのを防ぐ

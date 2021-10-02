@@ -5,10 +5,11 @@ from pydantic import BaseModel
 import yaml
 
 ENDPOINT = os.getenv('ENDPOINT', '')
+PORT = os.getenv('PORT', 8001)
 # if not ENDPOINT:
 #     raise Exception('ENDPOINT environment is not defined')
 
-app = FastAPI()
+app = FastAPI(port=PORT)
 
 with open('conf/text.yml') as text_file:
     texts = yaml.safe_load(text_file)
