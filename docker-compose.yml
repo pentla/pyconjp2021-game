@@ -1,0 +1,14 @@
+version: "3"
+services:
+  env:
+    build: .
+    ports:
+      - 8001:8001
+    command: /bin/bash -cxv 'poetry install && uvicorn api.main:app --host 0.0.0.0 --port 8001 --reload'
+    environment:
+      - PYTHONPATH=api
+      - PYTHONUNBUFFERED=yes
+      - ENV=dev
+    volumes:
+      - ./:/opt/api
+      - /opt/api/.venv # ローカルの .venv が同期されてエラーになるのを防ぐ

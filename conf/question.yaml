@@ -1,0 +1,8 @@
+question1:
+  text: これは問題文です。
+  answer: 2
+  nextText: 次の文章など
+question2:
+  text: これは問題文2です。
+  answer: 3
+  nextText: さすが！
