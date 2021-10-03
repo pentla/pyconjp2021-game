@@ -1,8 +1,8 @@
 import os
 from typing import Optional
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Body
 from pydantic import BaseModel
-import yaml
+from api.conf import get_texts, get_questions
 
 ENDPOINT = os.getenv('ENDPOINT', '')
 PORT = os.getenv('PORT', 8001)
@@ -10,12 +10,8 @@ PORT = os.getenv('PORT', 8001)
 #     raise Exception('ENDPOINT environment is not defined')
 
 app = FastAPI(port=PORT)
-
-with open('conf/text.yml') as text_file:
-    texts = yaml.safe_load(text_file)
-
-with open('conf/question.yml') as question_file:
-    questions = yaml.safe_load(question_file)
+texts = get_texts()
+questions = get_questions()
 
 
 @app.get('/')
@@ -47,7 +43,7 @@ def text_root(key: str = ''):
         # textはmust、questionはないときもある
         text = texts[key]['text']
         question = texts[key].get('question', '')
-        return {'text': text, 'question': question, 'endpoint_key': question}
+        return {'text': text, 'endpoint_key': question}
     return {'message': 'keyが設定されていません。keyはテキストのどこかに入っています。'}
 
 
@@ -65,7 +61,7 @@ class QuestionAnswer(BaseModel):
 
 
 @app.post('/question')
-def question_root(answer: QuestionAnswer):
+def question_root(answer: QuestionAnswer = Body(default=QuestionAnswer())):
     if answer.key is None:
         raise HTTPException(status_code=400, detail='keyが入っていません。keyは問題文と同じです')
 
@@ -77,4 +73,4 @@ def question_root(answer: QuestionAnswer):
         if str(answer.answer) == str(questions[answer.key]['answer']):
             return {'text': questions[answer.key]['nextText']}
         raise HTTPException(status_code=400, detail='正解ではありません。')
-    return {'message': 'keyが正しくありません'}
+    raise {'message': 'keyが正しくありません'}
