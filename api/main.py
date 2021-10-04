@@ -19,13 +19,13 @@ def root():
     return {
         'message': f"""
 PyconJP 2021 JX通信社の脱出ゲームへようこそ！このゲームはHTTP Requestを用いて問題の出題・回答をします。
-ルールを表示する場合: /ruleに対してGETリクエストをする
+ルールを表示する場合: /helpに対してGETリクエストをする
 ゲームを始める場合: {ENDPOINT}/startに対してGETリクエストをする
 """
     }
 
-@app.get('/rule')
-def rule_root():
+@app.get('/help')
+def help_root():
     return {
         'message': f"""
 ここではルールの説明をします。このゲームはHTTP Requestを用いて問題の出題・回答をします。
@@ -34,6 +34,7 @@ def rule_root():
 問題文はテキストのエンドポイントに記載されています。
 このエンドポイントに対してGETリクエストすることで問題文の表示ができ、POSTリクエストで回答ができます。POSTリクエストの際はRequest Bodyに'key' と、'answer'を入れてください。
 正解の場合はstatusCode: 200(OK)、間違っている場合はstatusCode: 400(Bad Request)が返ります。
+ゲームを始める場合: {ENDPOINT}/startに対してGETリクエストをする
 """
     }
 
