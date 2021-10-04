@@ -61,7 +61,7 @@ class QuestionAnswer(BaseModel):
 
 
 @app.post('/question')
-def question_root(answer: QuestionAnswer = Body(default=QuestionAnswer())):
+def question_root(answer: QuestionAnswer):
     if answer.key is None:
         raise HTTPException(status_code=400, detail='keyが入っていません。keyは問題文と同じです')
 
