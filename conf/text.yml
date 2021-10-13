@@ -16,13 +16,13 @@ pythonista:
     答えをエンドポイントにpostすると、また別の問題が現れました。
     そして「あなたはもしやPythonistaか？次にこの問題を解いてみよ」というメッセージとともに文章が現れました。
 
-    【問題】datetimeパッケージで、datetime型を「x年x月x日x時x分x秒」というフォーマットで出力させたいです。この場合、strftime関数に入力する文字列はどのようになりますか？
+    【問題】datetimeパッケージで、datetime型を「x年x月x日x時x分x秒」(例: 2021年10月13日18時56分58秒)というフォーマットで出力させたいです。この場合、strftime関数に入力する文字列はどのようになりますか？
 
     【ルール】このエンドポイントに対してpostリクエストを送ってください。例: {'answer': '答え', 'key': 'pythonista'}
     【例】httpieを使った場合、アクセスは以下のように送ってください。'curl -X POST https://game-mbqu6va7zq-an.a.run.app/question -H "Content-Type: application/json" -d '{"answer":"答え", "key":"pythonista"}'
 
   answer: "%Y年%m月%d日%H時%M分%S秒"
-  nextText: 正解です！二つの線の中心を求める問題でした。次は「/question?key=place」へ進んでください！
+  nextText: 正解です！次は「/question?key=place」へ進んでください！
 place:
   text: |-
     次の日、気になったあなたは通勤前に指定された場所を探してみることにしました。その場所はビルとビルの間の場所でした。
