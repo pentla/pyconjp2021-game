@@ -3,13 +3,14 @@ start:
     都内某所、夜21時。定時はとっくに過ぎているものの、あなたはコンソールから何故か出るエラーに苦戦していました。
     何度めかのCIを回している最中、ふとコンソールに出たログを確かめていると、大量のログやエラーメッセージの中に、ふと気になる文字を見つけました。
     それはメッセージはなく、ただエンドポイントと、合わせてこう書かれていました。
-    
+
     【問題】次のうち、PythonのAPIフレームワークでないものはどれか。
     1： FastAPI 2： Flask 3： SymPy 4： Tornado
 
-    【ルール】このエンドポイントに対してpostリクエストを送ってください。例: {'answer': '答え', 'key': 'start'}
+    【ルール】エンドポイントに対してpostリクエストを送ってください。例: {'answer': '答え', 'key': 'start'}
+    【例】httpieを使った場合、アクセスは以下のように送ってください。'curl -X POST https://game-mbqu6va7zq-an.a.run.app/question -H "Content-Type: application/json" -d '{"answer":"答え", "key":"start"}'
   answer: 3
-  nextText: 正解です！次は「/text?key=pythonista」へ進んでください！
+  nextText: 正解です！次は「/question?key=pythonista」へ進んでください！
 pythonista:
   text: |-
     答えをエンドポイントにpostすると、また別の問題が現れました。
@@ -18,9 +19,10 @@ pythonista:
     【問題】datetimeパッケージで、datetime型を「x年x月x日x時x分x秒」というフォーマットで出力させたいです。この場合、strftime関数に入力する文字列はどのようになりますか？
 
     【ルール】このエンドポイントに対してpostリクエストを送ってください。例: {'answer': '答え', 'key': 'pythonista'}
+    【例】httpieを使った場合、アクセスは以下のように送ってください。'curl -X POST https://game-mbqu6va7zq-an.a.run.app/question -H "Content-Type: application/json" -d '{"answer":"答え", "key":"pythonista"}'
 
   answer: "%Y年%m月%d日%H時%M分%S秒"
-  nextText: 正解です！二つの線の中心を求める問題でした。次は「/text?key=place」へ進んでください！
+  nextText: 正解です！二つの線の中心を求める問題でした。次は「/question?key=place」へ進んでください！
 place:
   text: |-
     次の日、気になったあなたは通勤前に指定された場所を探してみることにしました。その場所はビルとビルの間の場所でした。
@@ -31,18 +33,17 @@ place:
     以下の二つの文章を組み合わせた場合、どのような単語になるでしょうか？
     「Python(パイソン) は1990年代初頭ごろから公開されているプログラミング言語」
     「汎用的なプログラミング言語で、いろいろなアプリケーション開発や、システム管理ツールとして幅広く使われています」
-    
 
   answer: P汎y用t的hなoプnロ(グパライミソンング)言 語はで1、9い9ろ0い年ろ代な初ア頭プごリろケかーらシ公ョ開ンさ開れ発てやい、るシプスロテグムラ管ミ理ンツグー言ル語として幅広く使われています
-  nextText: 正解です！次は「text?key=thinking」へと進んでください。
+  nextText: 正解です！次は「question?key=thinking」へと進んでください。
 thinking:
   text: |-
     以下の文字が現れました。「おお、Pythonistaよ。ここには思うようにPythonを扱うことのできない悔しさや思念が集まっている。
     どうか、そのような者たちの思念を晴らしてやってくれないか。ほら、このエンドポイントにリクエストをpollingしていると定期的に問題が受け取れるのだ、ほら、君もやってみるといい」
 
-    【問題】\\u3071\\u3044\\u3053\\u3093\\u3058\\u3047\\u30fc\\u3074\\u30fc\\u3078\\u3088\\u3046\\u3053\\u305d というメッセージが記載されていました。これはどのような意味でしょうか？
+    【問題】\u3071\u3044\u3053\u3093\u3058\u3047\u30fc\u3074\u30fc\u3078\u3088\u3046\u3053\u305d というメッセージが記載されていました。これはどのような意味でしょうか？
   answer: ぱいこんじぇーぴーへようこそ
-  nextText: 正解です！json.dumpsでデフォルトで表示されるエスケープされた文字列ですね。次は「/text?key=complicated」
+  nextText: 正解です！さすがですね！次は「/question?key=complicated」です！
 complicated:
   text: |-
     だいぶ効いているようだ、小さくなってきているのを感じるぞ。どうやらこれで最後のようだ、しかし次の問題は…、なんだこれは、こんな問題は見たことがない…！
@@ -50,4 +51,4 @@ complicated:
   nextText: よくぞやり切った…！これでお主はPythonistaの中のPythonistaだ。次は「question?key=neverending」へと進むがよい。
 neverending:
   text: |-
-    お疲れ様でした！無事問題を全て解ききりました！おめでとうございます。
+    お疲れ様でした！無事問題を全て解ききりました！これにて「JX通信社からの」もしよければ、解き終わった方の集計をしていますので、ブースにいる担当者の方に問題を解き終わった旨を伝えていただければと思います！
