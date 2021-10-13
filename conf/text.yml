@@ -39,7 +39,7 @@ place:
 thinking:
   text: |-
     以下の文字が現れました。「おお、Pythonistaよ。ここには思うようにPythonを扱うことのできない悔しさや思念が集まっている。
-    どうか、そのような者たちの思念を晴らしてやってくれないか。ほら、このエンドポイントにリクエストをpollingしていると定期的に問題が受け取れるのだ、ほら、君もやってみるといい」
+    どうか、それらに報いてやってくれないか。ほら、このエンドポイントにリクエストをpollingしていると定期的に問題が受け取れるのだ、ほら、君もやってみるといい」
 
     【問題】\u3071\u3044\u3053\u3093\u3058\u3047\u30fc\u3074\u30fc\u3078\u3088\u3046\u3053\u305d というメッセージが記載されていました。これはどのような意味でしょうか？
   answer: ぱいこんじぇーぴーへようこそ
@@ -47,8 +47,12 @@ thinking:
 complicated:
   text: |-
     だいぶ効いているようだ、小さくなってきているのを感じるぞ。どうやらこれで最後のようだ、しかし次の問題は…、なんだこれは、こんな問題は見たことがない…！
-  answer: 
-  nextText: よくぞやり切った…！これでお主はPythonistaの中のPythonistaだ。次は「question?key=neverending」へと進むがよい。
+
+    【問題】以下の文章を解読してください。
+     例: Uryyb Jbeyq!! -> Hello World!!
+     Gunax lbh sbe ivfvgvat gur WK obbgu!
+  answer: Thank you for visiting the JX booth!
+  nextText: よくぞやり切った…！お主はPythonistaの中のPythonistaだ。次は「question?key=neverending」へと進むがよい。
 neverending:
   text: |-
     お疲れ様でした！無事問題を全て解ききりました！これにて「JX通信社からの」もしよければ、解き終わった方の集計をしていますので、ブースにいる担当者の方に問題を解き終わった旨を伝えていただければと思います！
