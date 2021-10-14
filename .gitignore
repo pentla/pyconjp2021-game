@@ -178,3 +178,4 @@ venv.bak/
 
 ddb-data
 .vscode
+.firebase
