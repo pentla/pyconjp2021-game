@@ -1,8 +1,0 @@
-pandas
-競プロっぽいやつ
-型
-リスト内包表記
-datetime.timestamp
-継承の順番
-3.10
-特殊メソッド
