@@ -13,6 +13,6 @@ gcloud run deploy game --source . --min-instances 1
 # hostingの登録(1回のみ)
 firebase target:apply hosting game jxpress-pycon2021
 
+# hostingのデプロイ
 firebase deploy --only hosting:game
-
 ```

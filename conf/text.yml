@@ -16,7 +16,7 @@ start:
       answer には回答を文字列形式で
       key には問題文のURLのパラメータについている値を入れてください。
     CURLを使った回答例は以下のようになります。
-    'curl -X POST https://game-mbqu6va7zq-an.a.run.app/question -H "Content-Type: application/json" -d '{"answer":"答え", "key":"start"}'
+    'curl -X POST https://jxpress-pycon2021.web.app/question -H "Content-Type: application/json" -d '{"answer":"答え", "key":"start"}'
   answer: 3
   nextText: 正解です！ 次は「/question?key=pythonista」へ進んでください！
 pythonista:
