@@ -25,7 +25,7 @@ def text_root(key: str = ''):
     if key and texts.get(key):
         text = texts[key]['text']
         return text
-    return 'keyが設定されていません。keyはテキストのどこかに入っています。'
+    return 'keyが設定されていません。keyはテキストのどこかに指定されています。'
 
 
 class QuestionAnswer(BaseModel):
@@ -36,10 +36,10 @@ class QuestionAnswer(BaseModel):
 @app.post('/question')
 def question_root(answer: QuestionAnswer):
     if answer.key is None:
-        raise HTTPException(status_code=400, detail='keyが入っていません。keyは問題文と同じです')
+        raise HTTPException(status_code=400, detail='JSONに "key" が入っていません。keyの値は問題文のURLのパラメータに含まれているものと同じです')
 
     if answer.answer is None:
-        raise HTTPException(status_code=400, detail='answerが入っていません。answerに対して回答を設定してリクエストしてください。')
+        raise HTTPException(status_code=400, detail='JSONに "answer" が入っていません。answerには回答を入れてリクエストしてください。')
 
     if answer.key and texts.get(answer.key):
         # strで比較する
